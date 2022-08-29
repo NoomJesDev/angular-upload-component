@@ -1,0 +1,20 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  UserName::
+  <input type="text" [(ngModel)]="username" formControlName="usernameForm" />
+  <div style="display:flex">
+    <app-imgupload
+      [Caption]="'เลือกไฟล์รูปหลัก'"
+      (IAmselectFile)="displayPicture1($event)"
+    ></app-imgupload>
+  </div>
+
+  <app-imgupload
+    [Caption]="'เลือกไฟล์รูปประกอป'"
+    (IAmselectFile)="displayPicture2($event)"
+  ></app-imgupload>
+
+  <!-- <input type="text" [(ngModel)]="valueC" />
+<input type="text" [(ngModel)]="valueD" /> -->
+</form>
+
+{{ contactForm.value | json }}
